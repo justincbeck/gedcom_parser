@@ -1,0 +1,63 @@
+GEDCOM Format
+
+The GEDCOM file format is very straightforward.  Each line represents a
+node in a tree.  It looks something like this:
+
+0 @I1@ INDI
+1 NAME Justin Charles /Beck/
+2 SURN Beck
+2 GIVN Justin Charles
+1 SEX M
+...
+
+In general, each line of the .ged file is formatted like this:
+
+LEVEL TAG-OR-ID [DATA]
+
+The LEVEL is an integer, representing the current depth in the tree.  If
+subsequent lines have greater levels that the current node, they are
+descendants of the current node.
+
+TAG-OR-ID is a tag that identifies the type of data in that node, or it is a
+unique identifier.  Tags are three- or four-letter words in uppercase. The
+unique identifiers are always text surrounded by @ characters (such as
+@I54@).  If an ID is given, the DATA is the type of the subtree that is
+identified.
+
+So, to tale apart the example given previously, you have this:
+
+- 0 @I1@ INDI.  This starts a new subtree of type INDI ("individual").
+  The ID for this individual is @I1@.
+
+- 1 NAME Justin Charles /Beck/.  This starts a NAME subtree with a
+  value of Justin Charles /Beck/.
+
+- 2 SURN Beck.  This is a sub-element of the NAME subtree, of type SURN
+  ("surname").
+  
+- 2 GIVN Justin Charles.  Same as SURN but specifies the given name of
+  the individual.
+
+- 1 SEX M.  Creates a new sub-element of the INDI element, of type SEX
+  (i.e. "gender").
+
+And so forth.
+
+Variable white space is allowed between the level and the tag.  Blank
+lines are ignored.
+
+This module converts input (as GEDCOM) to XML.  The snipper of GEDCOM
+given previously would become the following:
+
+<gedcom>
+  <indi id="@I1@">
+    <name>
+      Justin Charles /Beck/
+      <surn>Beck</surn>
+      <givn>Justin Charles</givn>
+    </name>
+    <sex>M</sex>
+    ...
+  </indi>
+  ...
+</gedcom>
