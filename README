@@ -46,7 +46,7 @@ And so forth.
 Variable white space is allowed between the level and the tag.  Blank
 lines are ignored.
 
-This module converts input (as GEDCOM) to XML.  The snipper of GEDCOM
+This module converts input (as GEDCOM) to XML.  The snippet of GEDCOM
 given previously would become the following:
 
 <gedcom>
