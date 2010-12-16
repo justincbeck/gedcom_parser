@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'gedcom_parser'
+
+if ARGV.length == 2
+  if ARGV[0].index(/-f/)
+    parser = GedcomParser::Parser.new
+    parser.parse(ARGV[1])
+  else
+    puts "Usage: gedcom_parser [-f file]"
+  end
+else
+  puts "Usage: gedcom_parser [-f file]"
+end

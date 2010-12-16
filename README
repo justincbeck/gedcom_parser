@@ -24,7 +24,7 @@ unique identifiers are always text surrounded by @ characters (such as
 @I54@).  If an ID is given, the DATA is the type of the subtree that is
 identified.
 
-So, to tale apart the example given previously, you have this:
+So, to take apart the example given previously, you have this:
 
 - 0 @I1@ INDI.  This starts a new subtree of type INDI ("individual").
   The ID for this individual is @I1@.

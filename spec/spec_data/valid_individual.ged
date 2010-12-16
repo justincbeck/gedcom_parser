@@ -1,0 +1,16 @@
+0 @I1@ INDI
+1   NAME Edward_VII  /Wettin/
+1   TITL King of England
+1   SEX M
+1   BIRT
+2     DATE Tuesday, 9th November 1841
+2     PLAC Buckingham,Palace,London,England
+1   DEAT
+2     DATE Friday, 6th May 1910
+2     PLAC Buckingham,Palace,London,England
+1   BURI
+2     DATE Friday, 20th May 1910
+2     PLAC Windsor,Berkshire,England
+1   FAMS @F2@
+1   FAMC @F1@
+1   RIN 2
