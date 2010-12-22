@@ -1,2 +1,2 @@
-require 'gedcom_parser/parser'
-require 'gedcom_parser/stack'
+require 'gedcom_processor/processor'
+require 'gedcom_processor/stack'
