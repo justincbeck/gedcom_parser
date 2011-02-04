@@ -1,9 +1,6 @@
 # This module is used to parse GEDCOM output to XML
 
 module GedcomProcessor
-  
-  
-  
   class Processor
     def initialize(output)
       @output = output
@@ -15,7 +12,9 @@ module GedcomProcessor
       if !@in_file.nil?
         create_out_file(file_name)
         
-        parse_gedcom
+        parser = Parser.new(@output)
+        parser.parse(@in_file, @out_file)
+        
         close_in_file
         close_out_file
         
@@ -45,12 +44,6 @@ module GedcomProcessor
     
     def close_out_file
       @out_file.close
-    end
-    
-    def parse_gedcom
-      @in_file.each_line do |line|
-        @out_file.write(line)
-      end
     end
   end
 end
