@@ -38,7 +38,7 @@ module GedcomProcessor
     end
     
     def create_out_file(file_name)
-      name = /^\.\/(?:\w+\/)*(\w+)\.\w{3}/.match(file_name)[1]
+      name = /^\.*\/?(?:\w+\/)*(\w+)\.\w{3}/.match(file_name)[1]
       @out_file = File.new("./output/#{name}.xml", "w+")
     end
     

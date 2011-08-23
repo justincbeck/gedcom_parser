@@ -4,8 +4,8 @@ require 'gedcom_processor'
 
 if ARGV.length == 2
   if ARGV[0].index(/-f/)
-    parser = GedcomProcessor::Parser.new $stdout
-    parser.parse(ARGV[1])
+    processor = GedcomProcessor::Processor.new $stdout
+    processor.process(ARGV[1])
   else
     puts "Usage: gedcom_parser [-f file]"
   end
