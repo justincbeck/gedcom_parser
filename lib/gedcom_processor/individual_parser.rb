@@ -1,12 +1,18 @@
 require 'builder'
 
 module GedcomProcessor
-  class IndividualParser < Parser
-    def parse(input, out)
+  class IndividualParser
+    def initialize(output)
+      @output = output
+    end
+
+    def parse(component)
       builder = Builder::XmlMarkup.new
 
-      while line = input.gets
-
+      component.each do |line|
+        line.each do |element|
+          @output.puts element
+        end
       end
     end
   end

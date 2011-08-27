@@ -11,6 +11,7 @@ GEM
     rspec-expectations (2.3.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.3.0)
+    rubygems-update (1.8.10)
 
 PLATFORMS
   ruby
@@ -18,3 +19,4 @@ PLATFORMS
 DEPENDENCIES
   builder
   rspec
+  rubygems-update

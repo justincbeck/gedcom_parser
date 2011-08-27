@@ -1,6 +1,6 @@
-if [[ -d "$rvm_path/environments" && -s "$rvm_path/environments/ruby-1.9.2-p136@gedcom_parser" ]] ; then
-  \. "$rvm_path/environments/ruby-1.9.2-p136@gedcom_parser"
+if [[ -d "$rvm_path/environments" && -s "$rvm_path/environments/ruby-1.9.2-p290@gedcom_parser" ]] ; then
+  \. "$rvm_path/environments/ruby-1.9.2-p290@gedcom_parser"
 else
-  rvm --create use  "ruby-1.9.2-p136@gedcom_parser"
+  rvm --create use  "ruby-1.9.2-p290@gedcom_parser"
 fi
 
