@@ -27,7 +27,7 @@ module GedcomProcessor
     
     it "should process valid individual record" do
       output.should_receive(:puts).with("File successfully parsed.")
-      processor.process('./spec/spec_data/valid_individual.ged')
+      processor.process(File.join(File.dirname(__FILE__), '../', 'spec_data', "valid_individual.ged"))
     end
     
     it "should process valid family record" do

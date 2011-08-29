@@ -7,6 +7,8 @@ module GedcomProcessor
     end
 
     def parse(component)
+      @output.puts "Parsing"
+
       builder = Builder::XmlMarkup.new
 
       component.each do |line|
