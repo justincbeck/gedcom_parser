@@ -3,6 +3,8 @@ include REXML
 
 module GedcomProcessor
   class Parser
+    TYPES = ['INDI', "FAM", "SOUR", "SUBM"]
+
     def initialize(output)
       @output = output
       @components = Array.new
@@ -24,8 +26,24 @@ module GedcomProcessor
           e_name = segments.shift
           e_data = segments.join " "
 
-          element = Element.new e_name.downcase
-          element.text = e_data
+          if TYPES.include? e_data
+            element = Element.new e_data
+            element.add_attribute "id", e_name
+          else
+            element = Element.new e_name.downcase
+            element.text = e_data
+            if e_name.eql? "NAME"
+              n_parts = e_data.split
+
+              s_element = Element.new "surn"
+              s_element.text = n_parts.pop.scan(/\w+/)[0]
+              element.add_element s_element
+
+              g_element = Element.new "givn"
+              g_element.text = n_parts.join " "
+              element.add_element g_element
+            end
+          end
 
           if p_depth == depth
             peers = stack.pop
